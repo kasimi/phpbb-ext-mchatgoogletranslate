@@ -1,0 +1,31 @@
+.mchat-message .translated-ltr > font::after {
+	content: ' ';
+}
+
+.mchat-message .goog-te-gadget-link::before {
+	content: '[';
+}
+
+.mchat-message .goog-te-gadget-link::after {
+	content: ']';
+}
+
+.mchat-message .goog-te-gadget-link {
+	color: gray;
+}
+
+.mchat-message span.goog-te-sectional-gadget-link-text {
+	font-size: unset;
+	font-weight: unset;
+}
+
+@media only screen and (min-width: 900px), only screen and (min-device-width: 900px) {
+
+	.mchat-message .goog-trans-control {
+		display: none;
+	}
+
+	.mchat-message:hover .goog-trans-control {
+		display: unset;
+	}
+}

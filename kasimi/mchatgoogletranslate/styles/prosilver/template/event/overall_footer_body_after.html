@@ -1,0 +1,29 @@
+{% if MCHAT_PAGE %}
+	{% INCLUDECSS '@kasimi_mchatgoogletranslate/common.css' %}
+	{% set U_GOOGLE_TRANSLATE = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en' %}
+	<script>
+		var mChatGoogleTranslateInit = function() {
+			new google.translate.SectionalElement({
+				sectionalNodeClassName: 'goog-trans-section',
+				controlNodeClassName: 'goog-trans-control'
+			}, 'google_sectional_element');
+			jQuery('.goog-trans-section').removeClass('goog-trans-section');
+		};
+		var mChatGoogleTranslateUpdate = function() {
+			if (jQuery('.goog-trans-section').length) {
+				jQuery.getScript('{{ U_GOOGLE_TRANSLATE }}');
+			}
+		};
+		jQuery(mChat).on({
+			mchat_response_handle_data_after: function(e, json) {
+				if (json.add) {
+					mChatGoogleTranslateUpdate();
+				}
+			},
+			mchat_edit_message_before: function() {
+				setTimeout(mChatGoogleTranslateUpdate, 500);
+			}
+		});
+	</script>
+	<script src="{{ U_GOOGLE_TRANSLATE | escape('html') }}"></script>
+{% endif %}
