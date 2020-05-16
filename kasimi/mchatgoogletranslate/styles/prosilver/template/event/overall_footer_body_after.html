@@ -1,6 +1,5 @@
 {% if MCHAT_PAGE %}
 	{% INCLUDECSS '@kasimi_mchatgoogletranslate/common.css' %}
-	{% set U_GOOGLE_TRANSLATE = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en' %}
 	<script>
 		var mChatGoogleTranslateInit = function() {
 			new google.translate.SectionalElement({
@@ -11,7 +10,7 @@
 		};
 		var mChatGoogleTranslateUpdate = function() {
 			if (jQuery('.goog-trans-section').length) {
-				jQuery.getScript('{{ U_GOOGLE_TRANSLATE }}');
+				jQuery.getScript('//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en');
 			}
 		};
 		jQuery(mChat).on({
@@ -24,6 +23,6 @@
 				setTimeout(mChatGoogleTranslateUpdate, 500);
 			}
 		});
+		mChatGoogleTranslateUpdate();
 	</script>
-	<script src="{{ U_GOOGLE_TRANSLATE | escape('html') }}"></script>
 {% endif %}
