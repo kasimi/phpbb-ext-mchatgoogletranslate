@@ -8,10 +8,8 @@
 			}, 'google_sectional_element');
 		};
 		var mChatGoogleTranslateUpdate = function() {
-			setTimeout(function() {
-				var scriptUrl = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en';
-				jQuery.getScript(scriptUrl);
-			}, 500);
+			var scriptUrl = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en';
+			jQuery.getScript(scriptUrl);
 		};
 		jQuery(mChat).on({
 			mchat_add_message_before: function(e, data) {
