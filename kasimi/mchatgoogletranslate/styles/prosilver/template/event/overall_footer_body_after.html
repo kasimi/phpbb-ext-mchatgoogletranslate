@@ -8,17 +8,19 @@
 			}, 'google_sectional_element');
 		};
 		var mChatGoogleTranslateUpdate = function() {
-			var scriptUrl = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en';
-			jQuery.getScript(scriptUrl);
+			setTimeout(function() {
+				var scriptUrl = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en';
+				jQuery.getScript(scriptUrl);
+			}, 500);
 		};
 		jQuery(mChat).on({
-			mchat_response_handle_data_after: function(e, json) {
-				if (json.add) {
+			mchat_add_message_before: function(e, data) {
+				if (data.titleAlert) {
 					mChatGoogleTranslateUpdate();
 				}
 			},
 			mchat_edit_message_before: function() {
-				setTimeout(mChatGoogleTranslateUpdate, 500);
+				mChatGoogleTranslateUpdate();
 			}
 		});
 		mChatGoogleTranslateUpdate();

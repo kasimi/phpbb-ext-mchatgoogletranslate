@@ -19,7 +19,8 @@
 	font-weight: unset;
 }
 
-.goog-te-gadget-link + .goog-te-gadget-link {
+.goog-te-gadget-link + .goog-te-gadget-link,
+.goog-te-sectional-gadget-link + .goog-te-sectional-gadget-link {
 	display: none;
 }
 
