@@ -8,7 +8,7 @@
 			}, 'google_sectional_element');
 		};
 		var mChatGoogleTranslateUpdate = function() {
-			var scriptUrl = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl=en';
+			var scriptUrl = '//translate.google.com/translate_a/element.js?cb=mChatGoogleTranslateInit&ug=section&hl={{ user.lang_name|escape('js') }}';
 			jQuery.getScript(scriptUrl);
 		};
 		jQuery(mChat).on({
