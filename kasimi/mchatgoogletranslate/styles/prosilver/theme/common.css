@@ -19,6 +19,10 @@
 	font-weight: unset;
 }
 
+.goog-te-gadget-link + .goog-te-gadget-link {
+	display: none;
+}
+
 @media only screen and (min-width: 900px), only screen and (min-device-width: 900px) {
 
 	.mchat-message .goog-trans-control {
